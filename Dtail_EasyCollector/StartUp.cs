@@ -116,7 +116,8 @@ Dictionary<string, Garment> GetGarments(
 }
 
 void AddAssetToTheCorrectPlace(Garment garment, string path, string currentGarment)
-{   
+{
+    var fileName = Path.GetFileName(path);
     //Textures
     var validDiffuseTexture = new Regex(@"T_[A-z0-9]{9}_D\.jpg");
     var validNormalTexture = new Regex(@"T_[A-z0-9]{9}_[A-z0-9]{2}-[A-z0-9]{1,2}_N\.jpg");
@@ -125,14 +126,14 @@ void AddAssetToTheCorrectPlace(Garment garment, string path, string currentGarme
     var validRoughnessTexture = new Regex(@"T_[A-z0-9]{9}_R\.jpg");
 
     //Hollows
-    var validHangingMesh = new Regex(@"SM_[A-z0-9]{9}_(PH-B|PH-T|HA02|HA26)_[0-9]{1}_Reduced\.(obj|fbx)");
-    var validHollowBodyMesh = new Regex(@"SM_[A-z0-9]{9}_(PM-0|PW-0|HM-M2|HM-W2)_[0-9]{1}_Reduced\.(obj|fbx)");
+    var validHangingMesh = new Regex(@"SM_[A-z0-9]{9}_(PH-B|PH-T|HA02|HA26)_[0-9]{1}_Reduced\.(obj|fbx)$");
+    var validHollowBodyMesh = new Regex(@"SM_[A-z0-9]{9}_(PM-0|PW-0|HM-M2|HM-W2)_[0-9]{1}_Reduced\.(obj|fbx)$");
 
     //Folds
-    var validSquareFoldMesh = new Regex(@"SM_[A-z0-9]{9}_SF00_0_Reduced\.(obj|fbx)");
-    var validLongFoldMesh = new Regex(@"SM_[A-z0-9]{9}_LF00_0_Reduced\.(obj|fbx)");
-    var validHalfFoldMesh = new Regex(@"SM_[A-z0-9]{9}_HF00_0_Reduced\.(obj|fbx)");
-    var validFlatFoldMesh = new Regex(@"SM_[A-z0-9]{9}_FLAT_0_Reduced\.(obj|fbx)");
+    var validSquareFoldMesh = new Regex(@"SM_[A-z0-9]{9}_SF00_0_Reduced\.(obj|fbx)$");
+    var validLongFoldMesh = new Regex(@"SM_[A-z0-9]{9}_LF00_0_Reduced\.(obj|fbx)$");
+    var validHalfFoldMesh = new Regex(@"SM_[A-z0-9]{9}_HF00_0_Reduced\.(obj|fbx)$");
+    var validFlatFoldMesh = new Regex(@"SM_[A-z0-9]{9}_FLAT_0_Reduced\.(obj|fbx)$");
 
     //Clo Files
     var validCloFiles = new Regex(@"[A-z0-9]{9}_(HM-M2|HM-W2)_[0-9]{1}\.(png|zpac)");
