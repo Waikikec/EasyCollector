@@ -5,6 +5,7 @@
         public Garment()
         {
             HangingMesh = new List<string>();
+            CloFiles = new List<string>();
         }
 
         //Texture repository
@@ -31,5 +32,9 @@
         public string HalfFoldMesh { get; set; }
 
         public string FlatFoldMesh { get; set; }
+
+        //Clo Repository
+
+        public List<string> CloFiles { get; set; }
     }
 }

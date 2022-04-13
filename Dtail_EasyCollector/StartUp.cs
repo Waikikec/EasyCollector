@@ -34,9 +34,15 @@ void MoveFiles(List<string> paths)
     {
         var folderName = path.Split("\\")[^3];
         var fileName = Path.GetFileName(path);
+        var fileExtension = Path.GetExtension(path);
         if (fileName.Contains("Reduced"))
         {
             fileName = fileName.Replace("_Reduced", "", StringComparison.OrdinalIgnoreCase);
+        }
+
+        if(fileExtension.Contains("png") || fileExtension.Contains("zpac"))
+        {
+            folderName = "CloFiles";
         }
 
         var newDirectory = Path.Combine(outputFolder, folderName);
@@ -128,6 +134,9 @@ void AddAssetToTheCorrectPlace(Garment garment, string path, string currentGarme
     var validHalfFoldMesh = new Regex(@"SM_[A-z0-9]{9}_HF00_0_Reduced\.(obj|fbx)");
     var validFlatFoldMesh = new Regex(@"SM_[A-z0-9]{9}_FLAT_0_Reduced\.(obj|fbx)");
 
+    //Clo Files
+    var validCloFiles = new Regex(@"[A-z0-9]{9}_(HM-M2|HM-W2)_[0-9]{1}\.(png|zpac)");
+
     if (validDiffuseTexture.IsMatch(path))
     {
         garment.DiffuseTexture = path;
@@ -171,6 +180,10 @@ void AddAssetToTheCorrectPlace(Garment garment, string path, string currentGarme
     else if (validFlatFoldMesh.IsMatch(path))
     {
         garment.FlatFoldMesh = path;
+    }
+    else if (validCloFiles.IsMatch(path))
+    {
+        garment.CloFiles.Add(path);
     }
 }
 
