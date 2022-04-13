@@ -2,6 +2,11 @@
 {
     public class Garment
     {
+        public Garment()
+        {
+            HangingMesh = new List<string>();
+        }
+
         //Texture repository
         public string DiffuseTexture { get; set; }
 
@@ -17,7 +22,7 @@
 
         public string HollowBodyMesh { get; set; }
 
-        public string HangingMesh { get; set; }
+        public List<string> HangingMesh { get; set; }
 
         public string SquareFoldMesh { get; set; }
 

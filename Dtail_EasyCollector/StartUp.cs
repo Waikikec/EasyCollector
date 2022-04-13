@@ -90,19 +90,19 @@ Dictionary<string, Garment> GetGarments(
 {
     Dictionary<string, Garment> dictionary = new();
 
-    foreach (var garment in input)
+    foreach (var currentInput in input)
     {
-        foreach (var path in sourceFiles.Where(path => path.Contains(garment)))
+        foreach (var path in sourceFiles.Where(path => path.Contains(currentInput)))
         {
-            if (dictionary.ContainsKey(garment) == false)
+            if (dictionary.ContainsKey(currentInput) == false)
             {
-                dictionary.Add(garment, new Garment());
+                dictionary.Add(currentInput, new Garment());
             }
 
             AddAssetToTheCorrectPlace(
-                dictionary[garment],
+                dictionary[currentInput],
                 path,
-                garment);
+                currentInput);
         }
     }
 
@@ -150,7 +150,7 @@ void AddAssetToTheCorrectPlace(Garment garment, string path, string currentGarme
     }
     else if (validHangingMesh.IsMatch(path))
     {
-        garment.HangingMesh = path;
+        garment.HangingMesh.Add(path);
     }
     else if (validHollowBodyMesh.IsMatch(path))
     {
