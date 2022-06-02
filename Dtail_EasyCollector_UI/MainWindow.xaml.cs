@@ -24,5 +24,10 @@ namespace Dtail_EasyCollector_UI
         {
             InitializeComponent();
         }
+
+        private void CollectBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(this.GarmentsList.Text);
+        }
     }
 }
