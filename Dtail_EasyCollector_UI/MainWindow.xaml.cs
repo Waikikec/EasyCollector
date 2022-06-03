@@ -29,5 +29,10 @@ namespace Dtail_EasyCollector_UI
         {
             MessageBox.Show(this.GarmentsList.Text);
         }
+
+        private void RadioBtn_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

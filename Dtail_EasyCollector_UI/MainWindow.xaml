@@ -48,8 +48,8 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <RadioButton Content="HM" Grid.Column="0" />
-                        <RadioButton Content="Nike" Grid.Column="1" />
+                        <RadioButton Checked="RadioBtn_Checked" Content="HM" Grid.Column="0" />
+                        <RadioButton Checked="RadioBtn_Checked" Content="Nike" Grid.Column="1" />
                     </Grid>
                 </StackPanel>
             </Grid>
