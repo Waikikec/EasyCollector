@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Dtail_EasyCollector_UI"
+        xmlns:local="clr-namespace:Dtail_EasyCollector_UI" 
         mc:Ignorable="d"
         Title="EasyCollect" Height="500" Width="300">
 
@@ -26,6 +26,7 @@
                         Background="#eee"
                         VerticalScrollBarVisibility="Visible"
                         x:Name="GarmentsList"
+                        Text="{Binding GarmentsList, UpdateSourceTrigger=PropertyChanged}"
                         />
                 </StackPanel>
 
@@ -58,13 +59,17 @@
             <TextBlock Text="Search Directory" FontWeight="Bold" Margin="0 10"/>
             <TextBox 
                 Padding="2"
-                x:Name="SearchPath"/>
+                x:Name="SearchPath"
+                Text="{Binding SearchDir, UpdateSourceTrigger=PropertyChanged}"
+                />
 
             <!--Output-->
             <TextBlock Text="Output Directory" FontWeight="Bold" Margin="0 10"/>
             <TextBox 
                 Padding="2"
-                x:Name="OutputDir"/>
+                x:Name="OutputDir"
+                Text="{Binding OutputDir, UpdateSourceTrigger=PropertyChanged}"
+                />
 
             <!--Button-->
                 <Button 
@@ -73,6 +78,7 @@
                     Padding="10"
                     x:Name="CollectBtn"
                     Click="CollectBtn_Click"
+                    Command="{Binding CollectCommand}"
             />
         </StackPanel>
     </Border>
