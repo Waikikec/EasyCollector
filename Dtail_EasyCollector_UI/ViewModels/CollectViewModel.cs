@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
 
 namespace Dtail_EasyCollector_UI.ViewModels
 {
     public class CollectViewModel : ViewModelBase
     {
-        private List<string> garmentsList;
+        private string garmentsList;
         private string searchDir;
         private string outputDir;
 
@@ -20,10 +16,11 @@ namespace Dtail_EasyCollector_UI.ViewModels
             OutputDir = outputDir;
         }
 
-        public List<string> GarmentsList
+        public string GarmentsList
         { 
             get => garmentsList; 
-            set {
+            set
+            {
                 garmentsList = value;
                 OnPropertyChanged(nameof(GarmentsList));
             }

@@ -2,8 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Dtail_EasyCollector_UI" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:viewmodels="clr-namespace:Dtail_EasyCollector_UI.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:CollectViewModel}"
         mc:Ignorable="d"
         Title="EasyCollect" Height="500" Width="300">
 
@@ -44,14 +45,15 @@
 
                     <!--Projects-->
                     <TextBlock Text="Projects" FontWeight="Bold" Margin="0 10"/>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <RadioButton Checked="RadioBtn_Checked" Content="HM" Grid.Column="0" />
-                        <RadioButton Checked="RadioBtn_Checked" Content="Nike" Grid.Column="1" />
-                    </Grid>
+                    <RadioButton 
+                        Checked="RadioBtn_Checked"
+                        Content="HM"
+                        
+                        />
+                    <RadioButton
+                        Checked="RadioBtn_Checked"
+                        Content="Generic"
+                        />
                 </StackPanel>
             </Grid>
 
@@ -72,7 +74,7 @@
                 />
 
             <!--Button-->
-                <Button 
+            <Button 
                     Content="Collect"
                     Margin="0,10"
                     Padding="10"
